@@ -9,6 +9,21 @@
   <!-- Redirection auto vers Storyline après 8 secondes -->
   <meta http-equiv="refresh" content="8; url=story.html" />
 
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-78EP02SZ8L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+
+  gtag('event', 'tll_qr_landing', {
+    source: 'qr_catalogue',
+    page_type: 'sas_entree'
+  });
+</script>
+
   <style>
     :root {
       --bg-1: #050816;
@@ -337,20 +352,7 @@
        Remplace G-XXXXXXXXXX par ton ID de mesure
        Décommente ce bloc si tu veux l’utiliser
   ========================================== -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
 
-    gtag('event', 'tll_qr_landing', {
-      source: 'qr_catalogue',
-      page_type: 'sas_entree'
-    });
-  </script>
-  -->
 
   <!-- =========================================
        TRACKING OPTION 2 : Plausible
