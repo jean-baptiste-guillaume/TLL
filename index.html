@@ -42,7 +42,7 @@
 
     .scene {
       position: relative;
-      min-height: 100vh;
+      min-height: 100svh;
       display: grid;
       place-items: center;
       padding: 40px;
@@ -253,7 +253,84 @@
       50% { transform: translateY(8px); }
       100% { transform: translateY(0px); }
     }
+    @media (max-width: 768px) {
+  .scene {
+    padding: 20px 14px;
+    align-items: start;
+  }
+
+  .card {
+    width: 100%;
+    padding: 26px 20px 24px;
+    border-radius: 20px;
+    margin-top: 24px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .lead {
+    margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+
+  .timeline {
+    margin-top: 24px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .pulse {
+    width: 12px;
+    height: 12px;
+  }
+
+  .progress-wrap {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+  }
+
+  .timeline-label {
+    display: none;
+  }
+
+  .enter-now {
+    width: 100%;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 14px 18px;
+    font-size: 1.05rem;
+  }
+
+  .footer-note {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .legal {
+    position: static;
+    transform: none;
+    margin-top: 18px;
+    font-size: 0.72rem;
+    padding: 0;
+  }
+}
   </style>
+
+  
 
   <!-- =========================================
        TRACKING OPTION 1 : Google Analytics 4
@@ -311,11 +388,11 @@
     <section class="card" aria-label="Entrée dans l'expérience TLL">
       <p class="eyebrow">TLL · Expérience immersive</p>
 
-      <h1>Le parcours s’ouvre.<br>Préparez-vous à entrer dans l’exploration.</h1>
+      <h1>Entrer dans l’exploration.</h1>
 
       <p class="lead">
-        Vous allez accéder à une expérience pédagogique conçue par le Tropisme Learning Lab 
-        en souvenir des expérimentations et dispositifs menées tout au long de son programme.
+        Vous allez accéder à une expérience pédagogique conçue par le Tropisme Learning Lab,
+ dans le prolongement des expérimentations menées tout au long de son programme.
         
       </p>
 
