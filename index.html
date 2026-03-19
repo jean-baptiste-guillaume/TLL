@@ -1,26 +1,424 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tropisme Learning Lab – Expérience bientôt disponible</title>
-  <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:760px;margin:64px auto;padding:0 16px;line-height:1.5}
-    .card{border:1px solid #2b2b2b;border-radius:16px;padding:24px}
-    h1{margin:0 0 12px}
-    p{margin:0 0 10px;color:#444}
-    .muted{color:#666;font-size:.95rem;margin-top:16px}
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>Expérience TLL</h1>
-    <p>L’expérience interactive sera disponible très prochainement.</p>
-    <p>Vous pouvez conserver ce QR code : le lien restera le même.</p>
-    <p class="muted">Si vous ne voyez pas l’expérience, revenez dans quelques jours.</p>
-  </div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TLL — Entrée dans l’expérience</title>
+  <meta name="description" content="Entrée dans l’expérience immersive TLL." />
 
-  <!-- Plus tard, tu pourras activer la redirection en décommentant la ligne ci-dessous -->
-  <!-- <meta http-equiv="refresh" content="0; url=story.html"> -->
+  <!-- Redirection auto vers Storyline après 8 secondes -->
+  <meta http-equiv="refresh" content="8; url=story.html" />
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-78EP02SZ8L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XXXXXXXXXX');
+
+  gtag('event', 'tll_qr_landing', {
+    source: 'qr_catalogue',
+    page_type: 'sas_entree'
+  });
+</script>
+
+  <style>
+    :root {
+      --bg-1: #050816;
+      --bg-2: #0b1330;
+      --bg-3: #111b45;
+      --text: #eef4ff;
+      --muted: #b9c7e6;
+      --accent: #86b7ff;
+      --accent-soft: rgba(134, 183, 255, 0.18);
+      --line: rgba(255, 255, 255, 0.08);
+      --glow: 0 0 24px rgba(134, 183, 255, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(94, 129, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 80% 30%, rgba(122, 98, 255, 0.16), transparent 24%),
+        radial-gradient(circle at 50% 80%, rgba(89, 173, 255, 0.12), transparent 30%),
+        linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+      overflow: hidden;
+    }
+
+    .scene {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 40px;
+      isolation: isolate;
+    }
+
+    .stars,
+    .stars::before,
+    .stars::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background-repeat: repeat;
+      opacity: 0.8;
+    }
+
+    .stars {
+      background-image:
+        radial-gradient(2px 2px at 8% 14%, rgba(255,255,255,0.9) 45%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 18% 72%, rgba(255,255,255,0.75) 45%, transparent 50%),
+        radial-gradient(2px 2px at 28% 44%, rgba(255,255,255,0.65) 45%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 37% 20%, rgba(255,255,255,0.9) 45%, transparent 50%),
+        radial-gradient(2px 2px at 52% 14%, rgba(255,255,255,0.8) 45%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 63% 36%, rgba(255,255,255,0.7) 45%, transparent 50%),
+        radial-gradient(2px 2px at 76% 68%, rgba(255,255,255,0.9) 45%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 86% 18%, rgba(255,255,255,0.7) 45%, transparent 50%),
+        radial-gradient(2px 2px at 91% 51%, rgba(255,255,255,0.85) 45%, transparent 50%);
+      animation: driftSlow 16s linear infinite;
+    }
+
+    .stars::before {
+      background-image:
+        radial-gradient(1.5px 1.5px at 12% 32%, rgba(134,183,255,0.7) 45%, transparent 50%),
+        radial-gradient(2px 2px at 23% 84%, rgba(180,210,255,0.8) 45%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 41% 57%, rgba(255,255,255,0.65) 45%, transparent 50%),
+        radial-gradient(2px 2px at 58% 76%, rgba(134,183,255,0.8) 45%, transparent 50%),
+        radial-gradient(1.5px 1.5px at 71% 22%, rgba(255,255,255,0.7) 45%, transparent 50%),
+        radial-gradient(2px 2px at 83% 40%, rgba(180,210,255,0.75) 45%, transparent 50%);
+      animation: driftSlowReverse 24s linear infinite;
+      opacity: 0.65;
+    }
+
+    .stars::after {
+      background-image:
+        linear-gradient(120deg, transparent 0 47%, rgba(134,183,255,0.14) 48%, transparent 49%),
+        linear-gradient(210deg, transparent 0 52%, rgba(134,183,255,0.08) 53%, transparent 54%);
+      background-size: 420px 420px, 520px 520px;
+      mix-blend-mode: screen;
+      opacity: 0.35;
+    }
+
+    .vignette {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle, transparent 45%, rgba(0,0,0,0.18) 72%, rgba(0,0,0,0.45) 100%);
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      width: min(760px, 100%);
+      padding: 40px 42px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(
+        180deg,
+        rgba(8, 14, 35, 0.72) 0%,
+        rgba(9, 18, 44, 0.58) 100%
+      );
+      box-shadow:
+        0 18px 60px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.92;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .lead {
+      margin: 20px 0 0;
+      max-width: 58ch;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .timeline {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 32px;
+      color: var(--text);
+    }
+
+    .pulse {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: var(--glow);
+      animation: pulse 1.8s ease-in-out infinite;
+      flex: 0 0 auto;
+    }
+
+    .progress-wrap {
+      position: relative;
+      width: 220px;
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .progress-bar {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(134,183,255,0.55), rgba(175,209,255,0.95));
+      border-radius: 999px;
+      box-shadow: 0 0 18px rgba(134,183,255,0.34);
+      animation: fillBar 8s linear forwards;
+    }
+
+    .timeline-label {
+      font-size: 0.98rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .footer-note {
+      margin-top: 26px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .enter-now {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(134,183,255,0.24);
+      background: rgba(134,183,255,0.08);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .enter-now:hover {
+      transform: translateY(-1px);
+      background: rgba(134,183,255,0.12);
+      border-color: rgba(134,183,255,0.42);
+    }
+
+    .enter-now span {
+      opacity: 0.88;
+    }
+
+    .legal {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.38);
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.28); opacity: 1; }
+    }
+
+    @keyframes fillBar {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+
+    @keyframes driftSlow {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes driftSlowReverse {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(8px); }
+      100% { transform: translateY(0px); }
+    }
+    @media (max-width: 768px) {
+  .scene {
+    padding: 20px 14px;
+    align-items: start;
+  }
+
+  .card {
+    width: 100%;
+    padding: 26px 20px 24px;
+    border-radius: 20px;
+    margin-top: 24px;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 9vw, 3rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .lead {
+    margin-top: 18px;
+    font-size: 1rem;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+
+  .timeline {
+    margin-top: 24px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .pulse {
+    width: 12px;
+    height: 12px;
+  }
+
+  .progress-wrap {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+  }
+
+  .timeline-label {
+    display: none;
+  }
+
+  .enter-now {
+    width: 100%;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 14px 18px;
+    font-size: 1.05rem;
+  }
+
+  .footer-note {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .legal {
+    position: static;
+    transform: none;
+    margin-top: 18px;
+    font-size: 0.72rem;
+    padding: 0;
+  }
+}
+  </style>
+
+  
+
+  <!-- =========================================
+       TRACKING OPTION 1 : Google Analytics 4
+       Remplace G-XXXXXXXXXX par ton ID de mesure
+       Décommente ce bloc si tu veux l’utiliser
+  ========================================== -->
+
+
+  <!-- =========================================
+       TRACKING OPTION 2 : Plausible
+       Remplace ton-domaine.github.io par ton domaine exact
+       Décommente ce bloc si tu veux l’utiliser
+  ========================================== -->
+  <!--
+  <script defer data-domain="jean-baptiste-guillaume.github.io"
+    src="https://plausible.io/js/script.js"></script>
+  -->
+
+  <script>
+    // Tracking léger natif sans outil externe :
+    // stocke localement un horodatage et des infos utiles
+    // utile pour debug, mais pas pour analytics distants.
+    try {
+      localStorage.setItem("tll_last_qr_entry", new Date().toISOString());
+      localStorage.setItem("tll_entry_source", "qr_catalogue");
+    } catch (e) {}
+
+    // Redirection JS de secours
+    window.addEventListener("DOMContentLoaded", function () {
+      setTimeout(function () {
+        window.location.href = "story.html";
+      }, 8000);
+    });
+  </script>
+</head>
+
+<body>
+  <main class="scene">
+    <div class="stars"></div>
+    <div class="vignette"></div>
+
+    <section class="card" aria-label="Entrée dans l'expérience TLL">
+      <p class="eyebrow">TLL · Expérience immersive</p>
+
+      <h1>Entrer dans l’exploration.</h1>
+
+      <p class="lead">
+        Vous allez accéder à une expérience pédagogique conçue par le Tropisme Learning Lab,
+ dans le prolongement des expérimentations menées tout au long de son programme.
+        
+      </p>
+
+      <div class="timeline" aria-hidden="true">
+        <div class="pulse"></div>
+        <div class="progress-wrap">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="timeline-label">Connexion à l’expérience…</div>
+      </div>
+
+      <a class="enter-now" href="story.html">
+        <strong>Entrer maintenant</strong>
+        <span>→</span>
+      </a>
+
+      <div class="footer-note">
+        Si la redirection ne se lance pas automatiquement, utilisez le bouton ci-dessus.
+      </div>
+    </section>
+
+    <div class="legal">
+      TLL · Portail d’entrée de l’expérience
+    </div>
+  </main>
 </body>
 </html>
