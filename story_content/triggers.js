@@ -2,35 +2,41 @@ function ExecuteScript(strId)
 {
   switch (strId)
   {
-      case "5cAdpQanJwX":
+      case "65uQ3MMAaV1":
         Script1();
         break;
-      case "5fPnycyudDc":
+      case "5uS5VmOABlY":
         Script2();
         break;
-      case "5Wff73rCfu3":
+      case "6AdyYSzjiW1":
         Script3();
         break;
-      case "5aUn1j0vpdw":
+      case "6j2vDAAEq1d":
         Script4();
         break;
-      case "6eU08bxlICz":
+      case "5YFHzceqC6U":
         Script5();
         break;
-      case "6IMruyzUQ2e":
+      case "6QbkHtyYMP9":
         Script6();
         break;
-      case "6DGn8iK8ceB":
+      case "5uoFyLvAUYH":
         Script7();
         break;
-      case "5bdK1NuHIoT":
+      case "6pyXb76lKZF":
         Script8();
         break;
-      case "65QEEHydTLt":
+      case "6NpNVuKhqYq":
         Script9();
         break;
-      case "6WJ3c0VfQiN":
+      case "6pmZss9LvOB":
         Script10();
+        break;
+      case "5dnqrgTMZIk":
+        Script11();
+        break;
+      case "6aNpkZWhbub":
+        Script12();
         break;
   }
 }
@@ -253,6 +259,52 @@ target.animate(
 }
 
 window.Script10 = function()
+{
+  const target = object('5e7mU5k7DN1');
+const duration = 1500;
+const easing = 'ease-out';
+const id = '6UXTwMBqxZk';
+const shakeAmount = 2;
+player.addForTriggers(
+id,
+target.animate(
+[ {translate: '0 0' }, 
+{translate: `-${shakeAmount}px 0` }, 
+{translate: '0 0' }, 
+{translate: `${shakeAmount}px 0` }, 
+{translate: '0 0' }, 
+{translate: `-${shakeAmount}px 0` }, 
+{translate: '0 0' } ]
+,
+  { fill: 'forwards', duration, easing }
+)
+);
+}
+
+window.Script11 = function()
+{
+  const target = object('5jcLRCVDxrj');
+const duration = 1500;
+const easing = 'ease-out';
+const id = '639hS5mOKDC';
+const shakeAmount = 2;
+player.addForTriggers(
+id,
+target.animate(
+[ {translate: '0 0' }, 
+{translate: `-${shakeAmount}px 0` }, 
+{translate: '0 0' }, 
+{translate: `${shakeAmount}px 0` }, 
+{translate: '0 0' }, 
+{translate: `-${shakeAmount}px 0` }, 
+{translate: '0 0' } ]
+,
+  { fill: 'forwards', duration, easing }
+)
+);
+}
+
+window.Script12 = function()
 {
   const target = object('5jcLRCVDxrj');
 const duration = 1500;
